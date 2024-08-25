@@ -1,0 +1,21 @@
+{
+  "name": "pruebatecnica",
+  "version": "1.0.0",
+  "description": "Prueba técnica infodec",
+  "main": "index.js",
+  "scripts": {
+    "start:php": "cd backend && php artisan serve",
+    "start:angular": "cd frontend && ng serve",
+    "start": "concurrently \"npm run start:php\" \"npm run start:angular\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "@ngx-translate/core": "^15.0.0",
+    "@ngx-translate/http-loader": "^8.0.0"
+  }
+}

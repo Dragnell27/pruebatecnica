@@ -1,0 +1,7 @@
+<div class="postition-relative">
+  <select name="locale" id="locale" class="form-control position-relative" (change)="changeLanguage($event)">
+    @for (locale of locales; track locale.value) {
+      <option [value] = "locale.value">{{locale.name}}</option>
+    }
+  </select>
+</div>

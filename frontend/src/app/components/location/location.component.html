@@ -1,0 +1,36 @@
+<div class="container" id="form-location">
+  <div class="mt-4 w-100 p-2 justify-content-center container-location">
+    <label class="w-100 mb-3">
+      {{ "SELECT_COUNTRY" | translate }}: <span class="text-danger">*</span>
+      <select
+        name="countries"
+        id="countries"
+        class="form-control w-100"
+        (change)="changeCountry($event)"
+      >
+      <option class="" value="0">{{ "SELECT" | translate }}</option>
+      <!-- <option class="" value="5">hola</option> -->
+      @for (country of countries; track country.id) {
+        <option class="form-control"   value="{{ country.id }}">
+          {{ country.name | uppercase | translate }}
+        </option>
+        }
+      </select>
+    </label>
+    <label class="w-100">
+      {{ "SELECT_CITY" | translate }}: <span class="text-danger">*</span>
+      <select name="cities" id="cities" class="form-control w-100" (change)="changeCity($event)">
+        <option class="form-control" value="0">{{ "SELECT" | translate }}</option>
+        @for (city of cities; track city.id) {
+        <option class="form-control" value="{{ city.id }}">
+          {{ city.name | uppercase | translate }}
+        </option>
+        }
+      </select>
+    </label>
+  </div>
+</div>
+<div class="row mt-3 justify-content-center gap-md-5 gap-2 px-5">
+  <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page" class="btn btn-secondary col-5 col-md-2">Atrás</a>
+  <a class="btn btn-primary col-5 col-md-2" (click)="next($event)">Siguiente</a>
+</div>

@@ -1,0 +1,30 @@
+<header class="py-3" style="z-index: 1000; position: relative;">
+  <nav class="container-fluid row justify-content-center p-0 m-0">
+    <div class="position-relative col-8 col-md-4 history-container">
+      <button class="btn btn-outline-light w-100" (click)="history($event)">
+        {{ "HISTORY" | translate }}
+      </button>
+      <div class="history position-absolute d-none" id="history">
+        @for (country of countries; track country.id) {
+        <div class="d-flex justify-content-evenly px-1">
+          <div style="width: 60%;">{{ country.city.country.name }}, {{ country.city.name }}</div>
+          <div style="width: 40%;">${{ country.budget }}</div>
+        </div>
+        }
+      </div>
+    </div>
+    <app-language class="col-4 col-md-3" />
+  </nav>
+</header>
+
+<main class="position-relative">
+  <div
+class="alert alert-danger p-2 w-100 position-absolute p-alert-close"
+style="z-index: 200"
+role="alert"
+id="p-alert"
+>
+Por favor rellene todos los campos.
+</div>
+  <router-outlet></router-outlet>
+</main>

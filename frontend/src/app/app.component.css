@@ -1,0 +1,35 @@
+.history{
+  background: #fff;
+  width: calc(100% - 23px);
+  border-radius: 5px;
+  border: solid 1px #444;
+  font-size: 14;
+}
+
+header a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.history > div{
+  margin: 0;
+  padding: 5px;
+  border: solid .5px #888a;
+  cursor: pointer;
+}
+
+.history > div:hover{
+  background: #f1f1f1;
+}
+
+.p-alert-close{
+  top: -75px;
+  transition: top 0.5s;
+}
+
+.p-alert-open{
+  top: -25px;
+  transition: top 0.5s;
+}
+
