@@ -4,11 +4,14 @@
       <button class="btn btn-outline-light w-100" (click)="history($event)">
         {{ "HISTORY" | translate }}
       </button>
-      <div class="history position-absolute d-none" id="history">
-        @for (country of countries; track country.id) {
-        <div class="d-flex justify-content-evenly px-1">
-          <div style="width: 60%;">{{ country.city.country.name }}, {{ country.city.name }}</div>
-          <div style="width: 40%;">${{ country.budget }}</div>
+      <div class="history position-absolute d-none overflow-auto" id="history" style=" height: 300px;">
+        @for (history of countries; track history.id) {
+        <div class="px-1">
+          <p class="p-0 m-0">{{ history.city.country.name }}, {{ history.city.name }}</p>
+          <p class="p-0 m-0">COP: $ {{ history.budget | number : "1.0-3"}}</p>
+          <p class="p-0 m-0">{{history.coin}}: {{history.symbol}} {{(history.budget * history.exchangeRate) | number : "1.0-3"}}</p>
+          <p class="p-0 m-0">{{'TXT_RATE' | translate}} {{history.exchangeRate}}</p>
+          <p class="p-0 m-0">{{'TXT_CLIMATE' | translate}}: {{history.climate}}°C</p>
         </div>
         }
       </div>
@@ -24,7 +27,7 @@ style="z-index: 200"
 role="alert"
 id="p-alert"
 >
-Por favor rellene todos los campos.
+{{'ALERT' | translate}}
 </div>
   <router-outlet></router-outlet>
 </main>

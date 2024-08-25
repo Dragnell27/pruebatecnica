@@ -12,3 +12,7 @@ body{
   overflow: hidden;
   /* background: radial-gradient(ellipse at bottom, #012651 0%, #090a0f 100%); */
 }
+
+main{
+  font-size: 20px;
+}

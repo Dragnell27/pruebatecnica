@@ -60,19 +60,16 @@ export class BudgetComponent implements OnInit {
             country: sessionStorage.getItem('country'),
             budget: sessionStorage.getItem('budget'),
         };
-
         $.ajax({
-            url: `${this.endPoint}/calculator`, // URL de la ruta a la que enviarás la solicitud
-            type: 'POST', // Método HTTP
-            data: formData, // Datos a enviar
+            url: `${this.endPoint}/calculator`,
+            type: 'POST',
+            data: formData,
             success: (data: any) => {
-                console.log(data);
-                // Navegar a la ruta deseada solo después de que la respuesta de la API haya llegado
+                sessionStorage.setItem('data',JSON.stringify(data.data));
                 this.router.navigate(['/result']);
             },
             error: (jqXHR: any, textStatus: string, errorThrown: string | Error) => {
                 console.error('Error:', textStatus, errorThrown);
-                // Aquí podrías manejar errores o mostrar una alerta de error
             }
         });
     }

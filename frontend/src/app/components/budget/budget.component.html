@@ -3,12 +3,12 @@
     class="mt-4 w-100 p-2 justify-content-center container-location"
   >
     <label class="w-100 mb-3">
-      {{ "TEXT_BUDGET" | translate }}: <span class="text-danger">*</span>
+      {{ "DIGIT_BUDGET" | translate }}: <span class="text-danger">*</span>
       <input type="number" class="form-control" id="budget" (change)="changeBudget($event)">
     </label>
   </div>
 </div>
 <div class="row mt-3 justify-content-center gap-md-5 gap-2 px-5">
-  <a class="btn btn-secondary col-5 col-md-2" (click)="back($event)">Atrás</a>
-  <a class="btn btn-primary col-5 col-md-2" (click)="next($event)">Siguiente</a>
+  <a class="btn btn-secondary col-5 col-md-2" (click)="back($event)">{{'BACK' | translate}}</a>
+  <a class="btn btn-primary col-5 col-md-2" (click)="next($event)">{{'NEXT' | translate}}</a>
 </div>

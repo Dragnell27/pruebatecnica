@@ -64,16 +64,13 @@ class HistoryController extends Controller
     public function calculator(Request $request)
     {
         try {
-
-            // $city = Param::where('id', 5)->first();
-            // $country = Param::where('id',1)->first();
-            // $coinSymbol = Param::where('param_type_id', 3)->where('param_id',1)->first();
             $city = Param::where('id', $request->city)->first();
             $country = Param::where('id',$request->country)->first();
             $coinSymbol = Param::where('param_type_id', 3)->where('param_id',$request->country)->first();
             $arrayCoinSymbol = explode(',',$coinSymbol->name);
             $coin = $arrayCoinSymbol[0];
             $symbol = $arrayCoinSymbol[1];
+            $coinName = $arrayCoinSymbol[2];
 
 
             // dd($city->name . $coin . $symbol);
@@ -93,15 +90,26 @@ class HistoryController extends Controller
                 $data = [
                     'symbol' => $symbol,
                     'coin' => $coin,
+                    'coinName' => $coinName,
                     'city' => $city->name,
                     'country' => $country->name,
-                    'budgetFinal' => $dataCoin['conversion_rates'][$coin] * $request->budget,
+                    'budgetFinal' => round($dataCoin['conversion_rates'][$coin] * $request->budget,3),
+                    'exchangeRate' => $dataCoin['conversion_rates'][$coin],
                     'temp' => $dataClimate['main']['temp'],
-                    'icon' => $dataClimate['weather'][0]['icon'],
+                    'icon' => 'http://openweathermap.org/img/wn/' . $dataClimate['weather'][0]['icon'].'.png',
                 ];
 
-                // dd($data);
+                History::create([
+                    'param_city' => $request->city,
+                    'budget' => $request->budget,
+                    'symbol' => $symbol,
+                    'coin' => $coin,
+                    'climate' => $dataClimate['main']['temp'],
+                    'exchangeRate' => $dataCoin['conversion_rates'][$coin],
+                    'budget' => $request->budget,
+                ]);
 
+                // dd($data);
                 // Devuelve la respuesta
                 return response()->json([
                     'success' => true,

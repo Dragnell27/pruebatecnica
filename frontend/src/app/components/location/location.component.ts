@@ -100,10 +100,7 @@ export class LocationComponent implements OnInit {
     // Verifica si los valores de ciudad o país son inválidos
     if (city === '0' || country === '0') {
       showAlert();
-      if (budget === 0) {
-        return
-      }
-      return;
+      return
     }
 
     // Navega a la ruta deseada si todos los valores son válidos

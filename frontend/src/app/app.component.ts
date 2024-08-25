@@ -4,13 +4,14 @@ import { LanguageComponent } from './components/language/language.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { LocationComponent } from './components/location/location.component';
 import { environment } from '../environments/environment';
+import { DecimalPipe } from '@angular/common';
 
 declare var $: any;
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LanguageComponent, TranslateModule, LocationComponent,RouterOutlet, RouterLink, RouterLinkActive],
+  imports: [RouterOutlet,DecimalPipe, LanguageComponent, TranslateModule, LocationComponent,RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

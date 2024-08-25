@@ -48,10 +48,10 @@ class CreateParamsTable extends Migration
             ['id'=> 12,'name' => 'Aarhus','param_id' => 4,'param_type_id' => 2],
 
             //monedas
-            ['id'=> 13,'name' => 'GBP,£','param_id' => 1,'param_type_id' => 3],
-            ['id'=> 14,'name' => 'JPY,¥','param_id' => 2,'param_type_id' => 3],
-            ['id'=> 15,'name' => 'INR,₹','param_id' => 3,'param_type_id' => 3],
-            ['id'=> 16,'name' => 'DKK,kr','param_id' => 4,'param_type_id' => 3],
+            ['id'=> 13,'name' => 'GBP,£,Libra_Esterlina,','param_id' => 1,'param_type_id' => 3],
+            ['id'=> 14,'name' => 'JPY,¥,Yen_Japones','param_id' => 2,'param_type_id' => 3],
+            ['id'=> 15,'name' => 'INR,₹,Rupia_India','param_id' => 3,'param_type_id' => 3],
+            ['id'=> 16,'name' => 'DKK,kr,Corona_Danesa','param_id' => 4,'param_type_id' => 3],
         ]);
     }
 

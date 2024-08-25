@@ -1,1 +1,29 @@
-<p>result works!</p>
+<div class="mt-4 row justify-content-center p-2">
+  <div class="container-result col-md-6 col-12 row justify-content-center">
+    <div class="col-md-6 col-12">
+      <p class="display-1 text-center position-relative">
+        {{ data.temp }}
+        <span class="display-6 position-absolute top-0">°C</span>
+      </p>
+    </div>
+    <div class="col-md-6 col-12 text-center">
+      <img src="{{ data.icon }}" alt={{data.coin}} width="100px" />
+    </div>
+    <div class="col-12 p-0 text-left mt-4">
+      <p>
+        {{ data.country | uppercase | translate }},
+        {{ data.city | uppercase | translate }}
+      </p>
+      <p>{{'COIN' | translate}}: {{ data.coinName }} {{ data.symbol }}</p>
+      <p class="">{{'TXT_BUDGET' | translate}}: COP: ${{ budget | number : "1.0-3" }}</p>
+      <p>
+        {{'TXT_CONVERT' | translate}}: {{ data.coin }} {{ data.symbol
+        }}{{ data.budgetFinal | number : "1.0-3" }}
+      </p>
+      <p>
+        {{'TXT_RATE' | translate}}: {{ data.exchangeRate}}
+      </p>
+    </div>
+    <a class="btn btn-primary mt-4" (click)="home()">{{'TXT_BACK_HOME' | translate}}</a>
+  </div>
+</div>

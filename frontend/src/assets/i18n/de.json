@@ -14,5 +14,15 @@
   "NEW_DELHI": "Delhi",
   "MUMBAI": "Mumbai",
   "COPENHAGEN": "Kopenhagen",
-  "AARHUS": "Aarhus"
+  "AARHUS": "Aarhus",
+  "TXT_RATE": "Wechselkurs",
+  "TXT_CLIMATE": "Klima",
+  "ALERT": "Bitte füllen Sie alle Felder aus.",
+  "COIN": "Währung",
+  "TXT_BACK_HOME": "Zurück zur Startseite",
+  "TXT_CONVERT": "Konvertierung in",
+  "TXT_BUDGET": "Budget in",
+  "DIGIT_BUDGET": "Wie hoch ist Ihr Budget?",
+  "BACK": "Zurück",
+  "NEXT": "Weiter"
 }

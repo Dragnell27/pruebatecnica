@@ -16,6 +16,10 @@ class CreateHistoriesTable extends Migration
         Schema::create('histories', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('param_city');
+            $table->String('symbol');
+            $table->String('coin');
+            $table->String('climate');
+            $table->String('exchangeRate');
             $table->float('budget',20,2);
             $table->timestamps();
         });

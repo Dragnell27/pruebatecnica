@@ -15,12 +15,14 @@
   "MUMBAI": "Bombay",
   "COPENHAGEN": "Copenhague",
   "AARHUS": "Aarhus",
-  "NO_REGISTER" : "¿No tienes una cuenta?",
-  "URL_REGISTER": "Regístrate",
-  "LOGIN": "Iniciar sesión",
-  "DIGIT_PASSWORD": "Ingresa tu contraseña",
-  "DIGIT_USER": "Ingresa tu usuario",
-  "ACCOUNT": "¿Tienes una cuenta?",
-  "REGISTER": "Registrar cuenta",
-  "INIT_SESSION": "Inicia sesión"
+  "TXT_RATE": "Tasa de cambio",
+  "TXT_CLIMATE": "Clima",
+  "ALERT": "Por favor rellene todos los campos.",
+  "COIN": "Moneda",
+  "TXT_BACK_HOME": "Volver al inicio",
+  "TXT_CONVERT": "Conversion a",
+  "TXT_BUDGET": "Presupuesto en",
+  "BACK": "Atrás",
+  "NEXT": "Siguiente",
+  "DIGIT_BUDGET": "¿Cual es tu presupuesto?"
 }

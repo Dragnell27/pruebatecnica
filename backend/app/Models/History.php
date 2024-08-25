@@ -13,6 +13,10 @@ class History extends Model
     protected $fillable = [
         'param_city',
         'budget',
+        'symbol',
+        'coin',
+        'climate',
+        'exchangeRate',
     ];
 
     // Creo la relación para traer la info de la ciudad
@@ -21,7 +25,7 @@ class History extends Model
         return $this->belongsTo(Param::class, 'param_city');
     }
 
-    // Creo la relación para traer la info del país usando 
+    // Creo la relación para traer la info del país usando
     public function country()
     {
         return $this->hasOneThrough(Param::class, Param::class, 'id', 'id', 'param_city', 'param_id');
