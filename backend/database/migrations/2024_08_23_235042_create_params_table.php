@@ -14,6 +14,7 @@ class CreateParamsTable extends Migration
      */
     public function up()
     {
+        //Creo la tabla para almacenar parametros.
         Schema::create('params', function (Blueprint $table) {
             $table->id();
             $table->string('name');
