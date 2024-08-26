@@ -9,7 +9,7 @@ Nace de la necesidad de que un usuario necesita comprobar el clima y presupuesto
 ## Características
 
 - Listas dinámicas
-- Historial
+- Historial de búsqueda.
 - Selector de idioma
 - Aplicación web SPA
 
@@ -24,12 +24,12 @@ Nace de la necesidad de que un usuario necesita comprobar el clima y presupuesto
 3. Navega a la carpeta donde se encuentra alojado el backend: `cd backend/`
 4. Instalamos las dependencies de laravel: `composer install`
 5. Creamos el archivo .env clonando el .env.example: `cp .env.example .env`
-6. Abrimos el archivo .env que se encuentra en la ruta `./backend/.env` y configuramos las variables de entorno de conexión a la base de datos que están a partir de la variable DB_CONNECTION (configura según tus necesidades).
+6. Abrimos el archivo .env que se encuentra en la ruta `./backend/.env` y configuramos las variables de entorno de conexión a la base de datos(BD) que están a partir de la variable DB_CONNECTION (configura según tus necesidades).
 7. Luego de vuelta en la consola de comandos ejecutamos `php artisan key:generate` 
-seguido de `php artisan migrate`.
+seguido de `php artisan migrate` con estos paso se configuran las tablas de la BD y sus datos parametrizados.
 8. Volvemos a nuestra carpeta principal del proyecto `cd ../` y ejecutamos el comando `npm install && npm run install:frontend` para instalar las dependencias del proyecto principal y las dependencias del frontend.
-9. Ejecutamos el comando `npm start` para iniciar el backend y frontend el proyecto.
-10. Una vez la consola muestre que la aplicación levanto correctamente en nuestro navegador ingresamos al link: `http://localhost:4200/` para usar la aplicación web.
+9. En la carpeta principal del proyecto ejecutamos el comando `npm start` para iniciar el backend y frontend el proyecto.
+10. Una vez la consola muestre que la aplicación levanto correctamente, en nuestro navegador ingresamos al link: `http://localhost:4200/` para usar la aplicación web.
 
 
 
