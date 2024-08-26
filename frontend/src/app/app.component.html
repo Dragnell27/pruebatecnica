@@ -4,7 +4,7 @@
       <button class="btn btn-outline-light w-100" (click)="history($event)">
         {{ "HISTORY" | translate }}
       </button>
-      <div class="history position-absolute d-none overflow-auto" id="history" style=" height: 300px;">
+      <div class="history position-absolute d-none overflow-auto" id="history" style=" max-height: 300px;">
         @for (history of countries; track history.id) {
         <div class="px-1">
           <p class="p-0 m-0">{{ history.city.country.name }}, {{ history.city.name }}</p>

@@ -10,36 +10,6 @@ use Illuminate\Support\Facades\Http;
 
 class HistoryController extends Controller
 {
-    public function storage(Request $request)
-    {
-        try {
-            // Se validan los datos del request
-            $validatedData = $request->validate([
-                'city' => 'required|numeric',
-                'budget' => 'required|numeric',
-            ]);
-
-            // Crea el nuevo registro en la base de datos
-            $history = History::create([
-                'param_city' => $validatedData['city'],
-                'budget' => $validatedData['budget'],
-            ]);
-
-            // Retorna respuesta exitosa
-            return response()->json([
-                'success' => true,
-                'message' => 'History saved successfully',
-                'data'    => $history,
-            ], 200);
-        } catch (\Exception $e) {
-            // Retorna respuesta de error en caso de excepción
-            return response()->json([
-                'success' => false,
-                'message' => 'Failed to save history: ' . $e->getMessage(),
-                'data'    => null,
-            ], 500);
-        }
-    }
 
     public function show()
     {
@@ -63,7 +33,10 @@ class HistoryController extends Controller
 
     public function calculator(Request $request)
     {
+        // Trae toda la información referente al clima y moneda de la ciudad seleccionada
         try {
+            //inicializo variables con lo datos recibidos desde el frontend
+            //para consultar las APIs de moneda y clima
             $city = Param::where('id', $request->city)->first();
             $country = Param::where('id',$request->country)->first();
             $coinSymbol = Param::where('param_type_id', 3)->where('param_id',$request->country)->first();
@@ -72,21 +45,17 @@ class HistoryController extends Controller
             $symbol = $arrayCoinSymbol[1];
             $coinName = $arrayCoinSymbol[2];
 
-
-            // dd($city->name . $coin . $symbol);
-
-
+            //Realizo consulta a las APIs
             $responseCoin = Http::get('https://v6.exchangerate-api.com/v6/9ab10f61335934c83a941b45/latest/COP');
             $responseClimate = Http::get('https://api.openweathermap.org/data/2.5/weather?q='.$city->name.'&APPID=ccf0fc35228f8ff018716c7e55fb5814&units=metric');
 
-            // Verifica si la respuesta fue exitosa
+            // Verifica si ambas respuestas son exitosas
             if ($responseCoin->successful() && $responseClimate->successful()) {
-                // Obtener la respuesta en formato JSON
+                // Convierto las respuestas a json
                 $dataCoin = $responseCoin->json();
                 $dataClimate = $responseClimate->json();
 
-                // dd($dataClimate['weather'][0]['icon']);
-
+                //formateo la información que sera enviada al frontend
                 $data = [
                     'symbol' => $symbol,
                     'coin' => $coin,
@@ -99,6 +68,7 @@ class HistoryController extends Controller
                     'icon' => 'http://openweathermap.org/img/wn/' . $dataClimate['weather'][0]['icon'].'.png',
                 ];
 
+                // Creo el registro de la información consultada
                 History::create([
                     'param_city' => $request->city,
                     'budget' => $request->budget,
@@ -109,24 +79,23 @@ class HistoryController extends Controller
                     'budget' => $request->budget,
                 ]);
 
-                // dd($data);
                 // Devuelve la respuesta
                 return response()->json([
                     'success' => true,
-                    'message' => 'Se calculó la info',
+                    'message' => 'Information consulted correctly',
                     'data'    => $data,
                 ], 200);
             } else {
                 return response()->json([
                     'success' => false,
-                    'message' => 'No se pudo obtener la información',
+                    'message' => 'Error consulting APIs',
                     'error'   => $responseCoin->status() .' | '. $responseClimate->status(),
                 ], 400);
             }
         } catch (\Exception $e) {
             return response()->json([
                 'success' => false,
-                'message' => 'Failed to save history: ' . $e->getMessage(),
+                'message' => 'Unknown error: ' . $e->getMessage(),
                 'data'    => null,
             ], 500);
         }

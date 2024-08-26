@@ -24,10 +24,6 @@ Route::get('/countries',[ParamController::class, 'countries']);
 
 Route::get('/cities/{country}',[ParamController::class, 'cities']);
 
-// Route::get('/coin/{country}',[ParamController::class, 'coin']);
-
-Route::post('/history_storage',[HistoryController::class, 'storage']);
-
 Route::get('/history_show',[HistoryController::class, 'show']);
 
 Route::post('/calculator',[HistoryController::class, 'calculator']);

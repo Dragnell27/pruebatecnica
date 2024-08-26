@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { LanguageComponent } from './components/language/language.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { LocationComponent } from './components/location/location.component';
