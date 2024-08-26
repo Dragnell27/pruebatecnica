@@ -14,12 +14,14 @@ class CreateParamTypesTable extends Migration
      */
     public function up()
     {
+        //tabla para los tipos de parametros
         Schema::create('param_types', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->timestamps();
         });
 
+        //Creo los datos necesarios una vez la tabla exista.
         DB::table('param_types')->insert([
             ['id'=> 1,'name' => 'countries'],
             ['id'=> 2,'name' => 'cities'],

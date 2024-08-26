@@ -4,6 +4,7 @@ import { environment } from '../../../environments/environment';
 import { UpperCasePipe } from '@angular/common';
 import { Router } from '@angular/router';
 
+//Declaro la variable global para el uso de JQuery
 declare var $: any;
 
 @Component({
@@ -19,14 +20,19 @@ export class LocationComponent implements OnInit {
 
   countries: any[] = [];
   cities: any[] = [];
+
+  //Defino una variable para usar el endPoint
   private endPoint = environment.apiUrl;
 
+  // Carga de ciudades en lista dinámica
   ngOnInit(): void {
     $.ajax({
       url: `${this.endPoint}/countries`,
       method: 'GET',
       success: (data: any) => {
         this.countries = data.data
+
+        // Asigna la opción almacenada en el sessionStorage
         setTimeout(() => {
           let select = document.getElementById('countries') as HTMLSelectElement | null;
           if (select) {
@@ -43,6 +49,7 @@ export class LocationComponent implements OnInit {
     });
   }
 
+  //Detecta si hubo un cambio en el selector de países y carga las ciudades
   changeCountry(event: Event) {
     const country = event.target as HTMLInputElement
     sessionStorage.setItem('country', country.value);
@@ -53,6 +60,7 @@ export class LocationComponent implements OnInit {
         success: (data: any) => {
           this.cities = data.data;
 
+          // Asigna la opción almacenada en el sessionStorage
           setTimeout(() => {
             let select = document.getElementById('cities') as HTMLSelectElement | null;
             if (select) {
@@ -72,6 +80,7 @@ export class LocationComponent implements OnInit {
     }
   }
 
+  //Detecta si hubo un cambio en el selector de ciudades y almacena la opción en el sessionStorage
   changeCity(event: Event) {
     const city = event.target as HTMLInputElement
     sessionStorage.setItem('city', city.value);
@@ -83,7 +92,6 @@ export class LocationComponent implements OnInit {
     // Obtén los valores de sessionStorage y conviértelos a números
     const city = sessionStorage.getItem('city') || '0';
     const country = sessionStorage.getItem('country') || '0';
-    const budget = parseFloat(sessionStorage.getItem('budget') || '0');
 
     // Función para mostrar la alerta
     const showAlert = () => {
@@ -103,7 +111,7 @@ export class LocationComponent implements OnInit {
       return
     }
 
-    // Navega a la ruta deseada si todos los valores son válidos
+    // Navega a la ruta budget si todos los valores son válidos
     this.router.navigate(['/budget']);
   }
 }

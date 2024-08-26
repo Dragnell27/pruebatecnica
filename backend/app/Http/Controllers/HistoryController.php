@@ -45,7 +45,7 @@ class HistoryController extends Controller
             $symbol = $arrayCoinSymbol[1];
             $coinName = $arrayCoinSymbol[2];
 
-            //Realizo consulta a las APIs
+            //Realizo consulta a las APIs de moneda y clima
             $responseCoin = Http::get('https://v6.exchangerate-api.com/v6/9ab10f61335934c83a941b45/latest/COP');
             $responseClimate = Http::get('https://api.openweathermap.org/data/2.5/weather?q='.$city->name.'&APPID=ccf0fc35228f8ff018716c7e55fb5814&units=metric');
 

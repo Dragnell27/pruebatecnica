@@ -13,6 +13,7 @@ class CreateHistoriesTable extends Migration
      */
     public function up()
     {
+        //Se crea la tabla para almacenar el historial de búsqueda.
         Schema::create('histories', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('param_city');

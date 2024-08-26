@@ -7,6 +7,7 @@ import { translateLoaderFactory } from './core/utils/utils';
 import { HttpClient, provideHttpClient, withFetch } from '@angular/common/http';
 
 
+//Configuración de los providers
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes), provideHttpClient(withFetch()),
   importProvidersFrom(

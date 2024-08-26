@@ -21,8 +21,8 @@ export class AppComponent implements OnInit {
 
   constructor(private router: Router) {};
 
+  //Detecta la navegación a la pagina principal para cargar el historial.
   ngOnInit(): void {
-
     this.loadData();
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd && event.urlAfterRedirects === '/') {
@@ -30,6 +30,8 @@ export class AppComponent implements OnInit {
       }
     });
   }
+
+  //Método para el consumo de api que carga el historial
   loadData(): void {
     $.ajax({
       url: `${this.endPoint}/history_show`,
@@ -43,6 +45,7 @@ export class AppComponent implements OnInit {
     });
   }
 
+  //Evento para el despliegue del historial
   history(event: Event) {
     if (event.target) {
       const history = document.getElementById('history');

@@ -9,7 +9,6 @@
         (change)="changeCountry($event)"
       >
       <option class="" value="0">{{ "SELECT" | translate }}</option>
-      <!-- <option class="" value="5">hola</option> -->
       @for (country of countries; track country.id) {
         <option class="form-control"   value="{{ country.id }}">
           {{ country.name | uppercase | translate }}

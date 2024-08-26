@@ -24,6 +24,7 @@ class CreateParamsTable extends Migration
             $table->foreign('param_type_id')->references('id')->on('param_types')->onDelete('cascade');
         });
 
+        //Creo los parametros necesarios una vez la tabla params exista.
         DB::table('params')->insert([
             //Países
             ['id'=> 1,'name' => 'England','param_id' => null,'param_type_id' => 1],

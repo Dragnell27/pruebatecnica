@@ -10,6 +10,8 @@ import { Component } from '@angular/core';
 })
 
 export class LanguageComponent {
+
+  //Declaro las opciones de Idiomas.
   public locales = [
     {
       value : 'es',
@@ -21,10 +23,12 @@ export class LanguageComponent {
     }
   ]
 
+  //Declaración del constructor para el cambio de idioma
   constructor(private translateService: TranslateService) {
 
   }
 
+  //Detecta si hubo cambios en el selector de idioma y cambia el json de traducción a usar
   changeLanguage(event: Event){
     if (event.target) {
       const changeEvent = event.target as HTMLInputElement;
