@@ -33,6 +33,8 @@ export class BudgetComponent implements OnInit {
   }
 
   next(event: Event) {
+    const btn_budget = document.getElementById('budget-event');
+    const btn_span = document.getElementById('budget-carge');
     const alert = document.getElementById('p-alert');
 
     // Obtén los valores de sessionStorage y conviértelos a números
@@ -40,40 +42,43 @@ export class BudgetComponent implements OnInit {
 
     // Función para mostrar la alerta
     const showAlert = () => {
-        if (alert) {
-            alert.classList.remove('p-alert-close');
-            alert.classList.add('p-alert-open');
-            setTimeout(() => {
-                alert.classList.remove('p-alert-open');
-                alert.classList.add('p-alert-close');
-            }, 1500);
-        }
+      if (alert) {
+        alert.classList.remove('p-alert-close');
+        alert.classList.add('p-alert-open');
+        setTimeout(() => {
+          alert.classList.remove('p-alert-open');
+          alert.classList.add('p-alert-close');
+        }, 1500);
+      }
     };
 
     // Verifica si el valor del presupuesto es inválido
     if (budget === 0) {
-        showAlert();
-        return;
-    } else {
-        const formData: { city: string | null, country: string | null, budget: string | null } = {
-            city: sessionStorage.getItem('city'),
-            country: sessionStorage.getItem('country'),
-            budget: sessionStorage.getItem('budget'),
-        };
-        $.ajax({
-            url: `${this.endPoint}/calculator`,
-            type: 'POST',
-            data: formData,
-            success: (data: any) => {
-                sessionStorage.setItem('data',JSON.stringify(data.data));
-                this.router.navigate(['/result']);
-            },
-            error: (jqXHR: any, textStatus: string, errorThrown: string | Error) => {
-                console.error('Error:', textStatus, errorThrown);
-            }
-        });
+      showAlert();
+      return;
     }
-}
+    btn_budget?.classList.add('loader');
+    btn_span?.classList.add('d-none');
+    const formData: { city: string | null, country: string | null, budget: string | null } = {
+      city: sessionStorage.getItem('city'),
+      country: sessionStorage.getItem('country'),
+      budget: sessionStorage.getItem('budget'),
+    };
+    $.ajax({
+      url: `${this.endPoint}/calculator`,
+      type: 'POST',
+      data: formData,
+      success: (data: any) => {
+        sessionStorage.setItem('data', JSON.stringify(data.data));
+        btn_budget?.classList.remove('loader');
+        btn_span?.classList.remove('d-none');
+        this.router.navigate(['/result']);
+      },
+      error: (jqXHR: any, textStatus: string, errorThrown: string | Error) => {
+        console.error('Error:', textStatus, errorThrown);
+      }
+    });
+  }
 
   back($event: Event) {
     this.router.navigate(['/']);

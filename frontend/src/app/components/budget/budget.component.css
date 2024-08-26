@@ -1,3 +1,27 @@
 #form-budget{
   height: 150px;
 }
+
+.loader{
+  position: relative;
+}
+
+.loader::before{
+  content: '';
+  width: 100%;
+  position: absolute;
+  right: 45%;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border-top: 2px solid #fff;
+  border-left: 2px solid #fff;
+
+  animation: spin 0.6s infinite linear;
+}
+
+@keyframes spin{
+  to{
+    transform: rotate(360deg);
+  }
+}
