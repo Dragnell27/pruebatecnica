@@ -5,9 +5,10 @@
         {{ "HISTORY" | translate }}
       </button>
       <div class="history position-absolute d-none overflow-auto" id="history" style=" max-height: 300px;">
-        @for (history of countries; track history.id) {
+        @for (history of histories; track history.id) {
         <div class="px-1">
-          <p class="p-0 m-0">{{ history.city.country.name }}, {{ history.city.name }}</p>
+          <p class="p-0 m-0">{{ (history.city.country.name | uppercase) | translate}},
+            {{ (history.city.name | uppercase) | translate }}</p>
           <p class="p-0 m-0">COP: $ {{ history.budget | number : "1.0-3"}}</p>
           <p class="p-0 m-0">{{history.coin}}: {{history.symbol}} {{(history.budget * history.exchangeRate) | number : "1.0-3"}}</p>
           <p class="p-0 m-0">{{'TXT_RATE' | translate}} {{history.exchangeRate}}</p>

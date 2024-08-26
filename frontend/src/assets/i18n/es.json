@@ -24,5 +24,9 @@
   "TXT_BUDGET": "Presupuesto en",
   "BACK": "Atrás",
   "NEXT": "Siguiente",
-  "DIGIT_BUDGET": "¿Cual es tu presupuesto?"
+  "DIGIT_BUDGET": "¿Cual es tu presupuesto?",
+  "Yen_Japones": "Yen Japones",
+  "Rupia_India": "Rupia India",
+  "Libra_Esterlina": "Libra Esterlina",
+  "Corona_Danesa": "Corona Danesa"
 }

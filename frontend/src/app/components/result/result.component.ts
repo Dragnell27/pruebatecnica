@@ -26,6 +26,6 @@ export class ResultComponent {
 
   home(){
     sessionStorage.clear();
-    this.router.navigate(['']);
+    this.router.navigate(['/']);
   }
 }

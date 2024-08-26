@@ -22,7 +22,11 @@
   "TXT_BACK_HOME": "Zurück zur Startseite",
   "TXT_CONVERT": "Konvertierung in",
   "TXT_BUDGET": "Budget in",
-  "DIGIT_BUDGET": "Wie hoch ist Ihr Budget?",
   "BACK": "Zurück",
-  "NEXT": "Weiter"
+  "NEXT": "Weiter",
+  "DIGIT_BUDGET": "Wie hoch ist Ihr Budget?",
+  "Yen_Japones": "Japanischer Yen",
+  "Rupia_India": "Indische Rupie",
+  "Libra_Esterlina": "Pfund Sterling",
+  "Corona_Danesa": "Dänische Krone"
 }

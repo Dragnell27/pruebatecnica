@@ -14,12 +14,10 @@
         {{ data.country | uppercase | translate }},
         {{ data.city | uppercase | translate }}
       </p>
-      <p>{{'COIN' | translate}}: {{ data.coinName }} {{ data.symbol }}</p>
-      <p class="">{{'TXT_BUDGET' | translate}}: COP: ${{ budget | number : "1.0-3" }}</p>
+      <p>{{'COIN' | translate}}: {{ data.coinName | translate }} {{ data.symbol }}</p>
+      <p class="">{{'TXT_BUDGET' | translate}} COP: ${{ budget | number : "1.0-3" }}</p>
       <p>
-        {{'TXT_CONVERT' | translate}}: {{ data.coin }} {{ data.symbol
-        }}{{ data.budgetFinal | number : "1.0-3" }}
-      </p>
+        {{'TXT_CONVERT' | translate}} {{ data.coin }}: {{ data.symbol}}{{ data.budgetFinal | number : "1.0-3" }}</p>
       <p>
         {{'TXT_RATE' | translate}}: {{ data.exchangeRate}}
       </p>
